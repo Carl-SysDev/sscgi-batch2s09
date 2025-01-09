@@ -121,10 +121,12 @@ class Trainer {
   }
 
   showPokemon() {
-    console.log(`${this.name}'s Pokemons: `);
-    this.pokemons.forEach((pokemon) => {
-      console.log(`${pokemon.name}`);
-    });
+    // console.log(`${this.name}'s Pokemons: `);
+    // this.pokemons.forEach((pokemon) => {
+    //   console.log(`${pokemon.name}`);
+    // });
+
+    console.log(`  ${this.name}'s team: ${this.pokemons.map((pokemon) => pokemon.name)}`);
   }
 
   showTrainerDetails() {}
@@ -419,6 +421,7 @@ const mew = new DarkPokemon("Mew", 10, 100, 0);
 const necrozma = new LightPokemon("Necrozma", 10, 100, 0);
 const cosmoem = new LightPokemon("Cosmoem", 10, 100, 0);
 
+//ARRAY OF POKEMON
 let allPokemon = [
   charizard,
   stone,
@@ -519,10 +522,51 @@ function startGame() {
   }
 
   console.log("");
+
   // SHOWING ALL TEAM AND THEIR POKEMON USING MAP FUNCTION
   trainers.forEach((trainer) =>
     console.log(`${trainer.name}'s team: ${trainer.pokemons.map((pokemon) => pokemon.name)}`)
   );
+
+  // MENU
+  while (true) {
+    console.log("╔═════════════════《MAIN MENU》══════════════╗");
+    console.log("          [1] - View Trainers' Pokémon");
+    console.log("          [2] - Start Tournament");
+    console.log("          [3] - Exit");
+    console.log("╚═════════════════════《✧》══════════════════╝");
+
+    let choice;
+    while (isNaN(choice) || choice < 1 || choice > 3) {
+      choice = parseInt(prompt("Enter your choice"));
+      if (isNaN(choice)) {
+        console.log("Invalid input. Please enter a number.");
+      } else if (choice < 1) {
+        console.log("Please choose a valid option.");
+      } else if (choice > 3) {
+        console.log("Please choose a valid option.");
+      }
+    }
+
+    switch (choice) {
+      case 1:
+        trainers.forEach((trainer) => {
+          console.log("╔═══════════════•●•═══════════════╗");
+          console.log(`  Trainer: ${trainer.name}`);
+          trainer.showPokemon();
+          console.log("╚═══════════════•●•═══════════════╝");
+        });
+        break;
+      case 2:
+        const tournament = new Tournament(trainers);
+        tournament.startTournament();
+        break;
+      case 3:
+        console.log("");
+        console.log("Exiting...");
+        return;
+    }
+  }
 }
 
 startGame();
