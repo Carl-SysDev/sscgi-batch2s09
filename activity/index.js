@@ -332,32 +332,91 @@ class Tournament {
     this.trainers = trainers;
   }
 
-  randomMatchup() {
-    const availableTrainers = this.trainers.filter((trainer) => trainer.pokemons.some((pokemon) => !pokemon.isDead()));
+  //TOURNAMENT START
+  startTournament() {
+    //LOOP UNTIL ONE TRAINER REMAINS AND BECOME THE OVERALL WINNER
+    while (true) {
+      //FILTER OUT TRAINERS WITH AND HOW MANY POKEMONSREMAINING
+      const remainingTrainers = this.trainers.filter((trainer) =>
+        trainer.pokemons.some((pokemon) => !pokemon.isDead())
+      );
 
-    if (availableTrainers.length < 2) {
-      return; // Not enough trainers for a match
+      //CHECK IF THERE IS ONLY ONE TRAINER LEFT
+      if (remainingTrainers.length <= 1) {
+        //SHOW WINNER IF ONLY ONE TRAINER LEFT
+        if (remainingTrainers.length === 1) {
+          console.log(
+            `%c 👑 The tournament is over! ${remainingTrainers[0].name}  is the overall winner! and Won ${remainingTrainers[0].wins} Matches 👑`,
+            "border: 1px solid red; padding: 2px; border-radius: 2px; background-color: red; color: white; font-size: 30px; "
+          );
+        } else {
+          console.log(`No winner, all trainers are out of Pokémon.`);
+        }
+        break;
+      }
+
+      //MATCH UP THE TRAINERS BASED ON COUNT AND MATCH IS DIFFERENT DEPENDING ON COUNT
+      if (remainingTrainers.length === 3) {
+        this.roundRobin(remainingTrainers);
+      } else {
+        this.bracketMatch(remainingTrainers);
+      }
     }
-
-    // THIS IS THE RANDOM TRAINER SELECTION
-    const trainer1 = availableTrainers[Math.floor(Math.random() * availableTrainers.length)];
-    let trainer2;
-    do {
-      trainer2 = availableTrainers[Math.floor(Math.random() * availableTrainers.length)];
-    } while (trainer1 === trainer2);
-    console.log("");
-    console.log(
-      `       %c ⚔️  Match between ${trainer1.name} ${trainer1.wins}-Wins 🆚 ${trainer2.name} ${trainer2.wins}-Wins ⚔️ `,
-      "border: 1px solid black; padding: 2px; border-radius: 2px; font-size: 20px; "
-    );
-    this.startMatch(trainer1, trainer2);
   }
 
+  //BRACKET MATCH
+  bracketMatch(trainers) {
+    //MATCH UP THE TRAINERS IN PAIR ACCORDING TO INDEX
+    //WERE PARINGI UP TRAINERS IN BRACKET FORMAT WHERE EACH PAIR IS CONSIST OF TWO TRAINERS
+    for (let i = 0; i < trainers.length - 1; i += 2) {
+      const trainer1 = trainers[i];
+      const trainer2 = trainers[i + 1];
+      console.log("");
+      console.log(
+        `       %c  Match between ${trainer1.name} ${trainer1.wins}-Wins ${trainer2.name} ${trainer2.wins}-Wins `,
+        "border: 1px solid black; padding: 2px; border-radius: 2px; font-size: 20px; "
+      );
+      this.startMatch(trainer1, trainer2);
+    }
+
+    //IF THE NUMBER OF TRAINERS IS ODD THEN THE LAST TRAINER WILL BE MOVE INTO THE SEMI-FINAL
+    if (trainers.length % 2 !== 0) {
+      const lastTrainer = trainers[trainers.length - 1];
+      console.log(
+        `       %c  ${lastTrainer.name} Won by Default and Move into the Semi-Finals!`,
+        "border: 1px solid black; padding: 2px; border-radius: 2px; font-size: 20px; "
+      );
+    }
+  }
+
+  //ROUND ROBIN
+
+  roundRobin(trainers) {
+    //MATCH UP THE TRAINERS IN PAIR ACCORDING TO INDEX LOOP UNTIL THE LAST INDEX
+    //THIS 2 FOR LOOP WILL RESULT 1 TRAINER WILL MATCH TO ALL REMAINING PLAYERS
+    for (let i = 0; i < trainers.length; i++) {
+      for (let j = i + 1; j < trainers.length; j++) {
+        const trainer1 = trainers[i];
+        const trainer2 = trainers[j];
+        console.log("");
+        console.log(
+          `       %c ⚔️  Match between ${trainer1.name} ${trainer1.wins}-Wins 🆚 ${trainer2.name} ${trainer2.wins}-Wins ⚔️ `,
+          "border: 1px solid black; padding: 2px; border-radius: 2px; font-size: 20px; "
+        );
+
+        //CALL METHOD TO START THE BATTLE BETWEEN THE PAIRED TRAINERS
+        this.startMatch(trainer1, trainer2);
+      }
+    }
+  }
+
+  //START THE MATCH
   startMatch(trainer1, trainer2) {
     // Select valid Pokémon that is not dead
     const pokemon1 = trainer1.nextPokemon();
     const pokemon2 = trainer2.nextPokemon();
 
+    // ERROR HANDLING CHECK IF ONE OR BOTH TRAINERS HAVE NO VALID POKEMON
     if (!pokemon1 || !pokemon2) {
       console.log(`Match cannot proceed. One or both trainers have no valid Pokémon.`);
       return;
@@ -381,28 +440,6 @@ class Tournament {
 
     if (trainer2.pokemons.length === 0) {
       console.log(`${trainer2.name} is out of the tournament!`);
-    }
-  }
-
-  startTournament() {
-    while (true) {
-      const remainingTrainers = this.trainers.filter((trainer) =>
-        trainer.pokemons.some((pokemon) => !pokemon.isDead())
-      );
-
-      if (remainingTrainers.length <= 1) {
-        if (remainingTrainers.length === 1) {
-          console.log(
-            `%c 👑 The tournament is over! ${remainingTrainers[0].name}  is the overall winner! and Won ${remainingTrainers[0].wins} Matches 👑`,
-            "border: 1px solid red; padding: 2px; border-radius: 2px; background-color: red; color: white; font-size: 30px; "
-          );
-        } else {
-          console.log(`No winner, all trainers are out of Pokémon.`);
-        }
-        break;
-      }
-
-      this.randomMatchup();
     }
   }
 }
@@ -530,6 +567,8 @@ function startGame() {
 
   // MENU
   while (true) {
+    console.log("");
+
     console.log("╔═════════════════《MAIN MENU》══════════════╗");
     console.log("          [1] - View Trainers' Pokémon");
     console.log("          [2] - Start Tournament");
