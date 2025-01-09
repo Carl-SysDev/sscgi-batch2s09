@@ -435,58 +435,94 @@ let allPokemon = [
 ];
 
 //PROMTING IN FIRST ASK USER TO PUT # OF TRAINER AND POKEMON
-//ERROR IF NEGATIVE INPUT
+//ADD DESIGN LATER
 function startGame() {
   const trainers = [];
 
-  //PROMPT OF LIMIT OF TRAINER
-  let numberOfTrainer = parseInt(prompt("Enter Number of Trainer Max of 5"));
-  let maxTrainers = numberOfTrainer > 5 ? console.log("Max Trainer is 5 only") : numberOfTrainer;
-  console.log(`DONE SELECTING NUMBER OF TRAINERS `); //MAKE IT SUPER BIG
+  // PROMPT ASK USER TO PUT # OF TRAINER
+  let numberOfTrainer;
+  while (isNaN(numberOfTrainer) || numberOfTrainer < 3 || numberOfTrainer > 5) {
+    numberOfTrainer = parseInt(prompt("Enter Number of Trainers (Max 5)"));
+    if (isNaN(numberOfTrainer)) {
+      console.log("Invalid input. Please enter a number.");
+    } else if (numberOfTrainer < 1) {
+      console.log("Minimum number of trainers is 3.");
+    } else if (numberOfTrainer > 5) {
+      console.log("Maximum number of trainers is 5.");
+    }
+  }
+  console.log(`DONE SELECTING NUMBER OF TRAINERS `);
 
-  //PROMT OF LIMIT OF POKEMON
-  let numberOfPokemon = parseInt(prompt("Enter Number of Pokekon Max of 5"));
-  let maxPokemon = numberOfPokemon > 5 ? console.log("Max Pokemon is 5 only") : numberOfPokemon;
-  console.log(`DONE SELECTING NUMBER OF POKEMON `); //MAKE IT SUPER BIG
+  // PROMT ASK USER TO PUT # OF POKEMON
+  let numberOfPokemon;
+  //ERROR HANDLING IF INPUT IS NEGATIVE OR GREATER THAN 5
+  while (isNaN(numberOfPokemon) || numberOfPokemon < 2 || numberOfPokemon > 5) {
+    numberOfPokemon = parseInt(prompt("Enter Number of Pokekon (Max 5)"));
+    if (isNaN(numberOfPokemon)) {
+      console.log("Invalid input. Please enter a number.");
+    } else if (numberOfPokemon < 2) {
+      console.log("Minimum number of Pokémon is 2.");
+    } else if (numberOfPokemon > 5) {
+      console.log("Maximum number of Pokémon is 5.");
+    }
+  }
+  console.log(`DONE SELECTING NUMBER OF POKEMON `);
 
-  //ADDING TRAINER
-  for (let i = 1; i <= maxTrainers; i++) {
-    const name = prompt(`Enter the trainer[${i}] name: `);
+  // ADDING TRAINER NAME AND SELECTING POKEMON INSIDE A LOOP
+  for (let i = 1; i <= numberOfTrainer; i++) {
+    const name = prompt(`Enter the trainer ${i} Name: `);
     const newTrainer = new Trainer(name);
     trainers.push(newTrainer);
 
-    //SELECTING POKEMON AFTER REGISTER
-    for (let i = 1; i <= maxPokemon; i++) {
-      //SHOWING ALL POKEMON USING FOREACH FUNCTION
+    // SELECTING POKEMON AFTER ADDING TRAINER
+    for (let j = 1; j <= numberOfPokemon; j++) {
+      // SHOWING ALL AVAILABLE POKEMON USING FOREACH FUNCTION
       console.log("");
       console.log("");
-      console.log("");
+      console.log(`SELECT POKEMON[${j}] POKEMON FROM AVAILABLE POKEMON FOR TRAINER: ${newTrainer.name}`);
 
-      console.log(`SELECT [${i + 1}] POKEMON `);
-      allPokemon.forEach((pokemon, index) => {
-        console.log(`[${index + 1}] ${pokemon.name} | ${pokemon.level} | ${pokemon.type} | ${pokemon.hp}`);
+      // FILTERING OUT ALL POKEMON THAT ARE ALREADY IN A TRAINER SO POKEMON WILL NOT REPEAT
+      const availablePokemon = allPokemon.filter(
+        (pokemon) => !trainers.some((trainer) => trainer.pokemons.includes(pokemon))
+      );
+
+      //SHOW ALL AVAILABLE POKEMON
+      availablePokemon.forEach((pokemon, index) => {
+        console.log(
+          `[${index + 1}] ${pokemon.name} | LEVEL: ${pokemon.level} | TYPE:${pokemon.type} | HP:${pokemon.hp}`
+        );
       });
 
-      //selectedPokemonIdex is the idenx position of the pokemon in the array
-      const selectedPokemonIndex = parseInt(prompt(`Select Pokemon for ${newTrainer.name}: `));
-      if (selectedPokemonIndex >= 1 && selectedPokemonIndex <= allPokemon.length) {
-        const selectedPokemon = allPokemon[selectedPokemonIndex - 1];
-
-        console.log(`${newTrainer.name} choose ${selectedPokemon.name} as #[${i}] pokemon`);
-        console.log("");
-        newTrainer.choosePokemon(selectedPokemon);
-      } else {
-        console.log("Invalid input. Please enter a number between 1 and", allPokemon.length);
-        i--; // decrement i to retry the same iteration
+      // GETTING INPUT FROM USER TO SELECT POKEMON AND ENTER THE INDEX
+      let selectedPokemonIndex;
+      while (
+        isNaN(selectedPokemonIndex) ||
+        selectedPokemonIndex < 1 ||
+        selectedPokemonIndex > availablePokemon.length
+      ) {
+        selectedPokemonIndex = parseInt(prompt(`Select Available Pokemon for ${newTrainer.name}: `));
+        if (isNaN(selectedPokemonIndex)) {
+          console.log("Invalid input. Please enter a number.");
+        } else if (selectedPokemonIndex < 1) {
+          console.log("Invalid input. Please enter a number between 1 and", availablePokemon.length);
+        } else if (selectedPokemonIndex > availablePokemon.length) {
+          console.log("Invalid input. Please enter a number between 1 and", availablePokemon.length);
+        }
       }
+
+      const selectedPokemon = availablePokemon[selectedPokemonIndex - 1]; // Subtract 1 to get the correct index based on user input
+
+      console.log("");
+      console.log(`${newTrainer.name} choose ${selectedPokemon.name} as their pokemon`);
+      newTrainer.choosePokemon(selectedPokemon);
     }
   }
 
-  if (numberOfTrainer > 5) {
-    console.log("Maximum number of trainers needed reached.");
-  }
-
-  trainers.forEach((trainer) => console.log(trainer.name));
+  console.log("");
+  // SHOWING ALL TEAM AND THEIR POKEMON USING MAP FUNCTION
+  trainers.forEach((trainer) =>
+    console.log(`${trainer.name}'s team: ${trainer.pokemons.map((pokemon) => pokemon.name)}`)
+  );
 }
 
 startGame();
