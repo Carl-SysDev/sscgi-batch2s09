@@ -9,6 +9,44 @@
 
 // console.log("%c This is a colored log", "color: blue; font-size: 16px;");
 
+// console.log(`
+// ⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜
+// ⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜
+// ⬜⬜⬜⬛⬛🟥🟥🟥🟥🟥⬛⬜⬜⬜
+// ⬜⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜
+// ⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜
+// ⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜
+// ⬛🟥🟥🟥🟥🟥⬛⬛🟥🟥🟥🟥🟥⬛
+// ⬛🟥🟥🟥🟥⬛⬜⬜⬛🟥🟥🟥🟥⬛
+// ⬛⬛⬛⬛⬛⬛⬜⬜⬛⬛⬛⬛⬛⬛
+// ⬛⬜⬜⬜⬜⬜⬛⬛⬜⬜⬜⬜⬜⬛
+// ⬜⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛⬜
+// ⬜⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛⬜
+// ⬜⬜⬛⬜⬜⬜⬜⬜⬜⬜⬜⬛⬜⬜
+// ⬜⬜⬜⬛⬛⬜⬜⬜⬜⬛⬛⬜⬜⬜
+// ⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜
+// ⬜⬜⬜⬜⬜⬛⬛⬛⬛⬜⬜⬜⬜⬜ `);
+
+console.log(
+  `%c
+⣷⣿⣿⣶⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⢰⣶⣷⣿⣿
+⠀⠹⣿⣿⣿⡄⠀⠈⠓⠦⣄⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠖⠊⠉⠀⣸⣿⣿⣽⠃
+⠀⠀⠘⣿⣿⣇⠀⠀⠀⠀⠀⠘⠶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠁⠀⠀⠀⠀⠀⣿⣿⣿⠃⠀
+⠀⠀⠀⠈⢻⣿⠄⠀⠀⠀⠀⠀⠀⠈⠳⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠙⠁⠀⠀⠀⠀⠀⠀⡸⣿⠟⠁⠀⠀
+⠀⠀⠀⠀⠀⠁⢾⡄⠀⠀⠀⠀⠀⠀⠀⠈⠱⣦⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⣠⠟⠁⡀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠉⠳⡄⠀⠀⠀⠀⠀⠀⠀⠈⠳⡆⣤⠴⠞⠛⠉⠉⠉⠉⠉⠉⠉⠳⠆⣤⣤⠞⠁⠀⠀⠀⠀⠀⠀⢀⣠⠖⠁⠀⠀⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠖⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢳⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢇⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⣠⣶⠖⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠴⠶⣦⡄⠀⠀⢈⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠾⠀⠀⢰⣾⣷⣀⣰⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣀⣠⣾⣿⠀⠀⠀⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠀⠀⠈⠻⣍⡩⠜⠃⠀⠀⠀⠠⣤⡤⠀⠀⠀⠀⠹⠭⣉⠽⠏⠀⠀⠀⡷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⣤⠴⠴⣤⣠⣇⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⣤⣤⣼⣀⡴⢴⢦⣄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢸⠃⠀⠀⠀⠀⢹⡁⣀⡀⠙⣱⡀⠀⠀⠀⠲⣄⣠⡴⣒⢒⣤⣤⠴⠂⠀⠀⠀⢠⡞⢁⣀⡀⢨⠃⠀⠀⠀⠀⢹⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠉⠀⠉⠀⠈⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠈⠀⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠁⠈⠈⠈⠀⠉⠀⠀⠀⠀⠀⠀`,
+  "color: yellow;"
+);
 console.log("%c             _", "color: #FF69B4; font-size: 16px; font-weight: bold;");
 console.log("%c _ __   ___ | | _____ _ __ ___   ___  _ __", "color: #FF69B4; font-size: 16px; font-weight: bold;");
 console.log("%c| '_  / _ | |/ / _  '_ ` _  / _ | '_ \\ ", "color: #FF69B4; font-size: 16px; font-weight: bold;");
@@ -95,6 +133,11 @@ class Pokemon {
   isDead() {
     return this.hp <= 0;
   }
+
+  revive() {
+    this.isDead = false;
+    this.hp = 100;
+  }
 }
 
 //TRAINERS
@@ -102,6 +145,7 @@ class Trainer {
   constructor(name) {
     this.name = name;
     this.pokemons = [];
+    this.originalPokemons = [];
     this.wins = 0;
     this.losses = 0;
   }
@@ -111,8 +155,11 @@ class Trainer {
     //   console.log("You can only choose 6 Pokemon");
     // } else {
     this.pokemons.push(pokemon);
-
-    console.log(`${this.name} add ${pokemon.name} in the Team`);
+    this.originalPokemons.push(pokemon);
+    console.log(
+      `%c${this.name} add ${pokemon.name} in the Team`,
+      "color: red; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px; background-color: #FF69B4;"
+    );
     // }
   }
 
@@ -139,6 +186,10 @@ class Trainer {
     return this.pokemons.some((pokemon) => !pokemon.isDead());
   }
 
+  deadPokemons() {
+    return this.pokemons.filter((pokemon) => pokemon.isDead());
+  }
+
   winCounts() {
     this.wins += 1;
     return console.log(`${this.wins} Wins`);
@@ -157,7 +208,7 @@ class FirePokemon extends Pokemon {
       `%c${this.name} use FlameThrower💥 on ${opponent.name}!`,
       "border: 1px solid orange; padding: 2px; border-radius: 2px; background-color: orange; color: black;"
     );
-    let damage = this.calculateDamage(opponent.type, 4, 10); //DEALING CRITCAL HIT ON MASMAHINA
+    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
     opponent.receivedDamage(damage);
     if (opponent.type === "Rock") {
       console.log("SUPER EFFECTIVE");
@@ -177,7 +228,7 @@ class RockPokemon extends Pokemon {
       `%c${this.name} use RockDrive💩 on ${opponent.name}!`,
       "border: 1px solid brown; padding: 2px; border-radius: 2px; background-color: brown; color: white;"
     );
-    let damage = this.calculateDamage(opponent.type, 4, 10); //DEALING CRITCAL HIT ON MASMAHINA
+    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
     opponent.receivedDamage(damage);
     if (opponent.type === "Water") {
       console.log("SUPER EFFECTIVE");
@@ -197,7 +248,7 @@ class WaterPokemon extends Pokemon {
       `%c${this.name} use WaterGun💦 on ${opponent.name}!`,
       "border: 1px solid skyblue; padding: 2px; border-radius: 2px; background-color: skyblue; color: black;"
     );
-    let damage = this.calculateDamage(opponent.type, 4, 10); //DEALING CRITCAL HIT ON MASMAHINA
+    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
     opponent.receivedDamage(damage);
     if (opponent.type === "Grass") {
       console.log("SUPER EFFECTIVE");
@@ -218,7 +269,7 @@ class GrassPokemon extends Pokemon {
       "border: 1px solid #3E7B27; padding: 2px; border-radius: 2px; background-color: #3E7B27; color: white;"
     );
 
-    let damage = this.calculateDamage(opponent.type, 4, 10); //DEALING CRITCAL HIT ON MASMAHINA
+    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
     opponent.receivedDamage(damage);
     if (opponent.type === "Dark") {
       console.log("SUPER EFFECTIVE");
@@ -238,7 +289,7 @@ class DarkPokemon extends Pokemon {
       `%c${this.name} use BlackHole🌑 on ${opponent.name}!`,
       "border: 1px solid #3E5879; padding: 2px; border-radius: 2px; background-color: #3E5879; color: white;"
     );
-    let damage = this.calculateDamage(opponent.type, 4, 10); //DEALING CRITCAL HIT ON MASMAHINA
+    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
     opponent.receivedDamage(damage);
     if (opponent.type === "Light") {
       console.log("SUPER EFFECTIVE");
@@ -258,7 +309,7 @@ class LightPokemon extends Pokemon {
       `%c${this.name} use Light Magic✨ on ${opponent.name}!`,
       "border: 1px solid #FFF574; padding: 2px; border-radius: 2px; background-color: #FFF574; color: black;"
     );
-    let damage = this.calculateDamage(opponent.type, 4, 10); //DEALING CRITCAL HIT ON MASMAHINA
+    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
     opponent.receivedDamage(damage);
     if (opponent.type === "Fire") {
       console.log("SUPER EFFECTIVE");
@@ -277,50 +328,116 @@ class Battle {
     this.trainer2 = trainer2;
   }
 
+  //START THE BATTLE BETWEEN THE PAIRED TRAINERS
   startBattle() {
-    console.log(`The battle Between ${this.pokemon1.name} ❌ ${this.pokemon2.name} has begun! `);
+    //console.log(`The battle Between ${this.trainer1.name} ❌ ${this.trainer2.name} has begun! `);
     console.log("");
-    // let powers = Math.floor(Math.random() * 2);
+
     let game = true;
 
-    // console.log(powers);
+    while (game) {
+      let pokemon1 = this.trainer1.nextPokemon();
+      let pokemon2 = this.trainer2.nextPokemon();
+
+      //CHECK IF TRAINER HAVE REMAINING POKEMON IF DONT THE MATCH ENDS
+      if (!pokemon1 || !pokemon2) {
+        game = false;
+        console.log("NO POKEMON REMAINING");
+        break;
+      }
+
+      console.log(``);
+      console.log(
+        `%c ${this.trainer1.name}'s ${pokemon1.name} is battling against ${this.trainer2.name}'s ${pokemon2.name}! `,
+        "border: 1px solid black; padding: 2px; border-radius: 2px; background-color: black; color: white;"
+      );
+
+      //START THE BATTLE FOR ALL TRAINERS POKEMONS
+      let battle = new SingleBattle(pokemon1, pokemon2);
+      battle.startBattle();
+
+      //CREATING NEW ARRAY TO REMOVE DEAD POKEMON FOR EACH TRAINER 1
+      if (pokemon1.isDead()) {
+        this.trainer1.pokemons = this.trainer1.pokemons.filter((pokemon) => pokemon !== pokemon1);
+      }
+      //CREATING NEW ARRAY TO REMOVE DEAD POKEMON FOR TRAINER 2
+      if (pokemon2.isDead()) {
+        this.trainer2.pokemons = this.trainer2.pokemons.filter((pokemon) => pokemon !== pokemon2);
+      }
+
+      //CHECK IF TRAINER 1 HAVE REMAINING POKEMON
+      if (this.trainer1.pokemonLeft()) {
+        console.log(`${this.trainer1.name} has ${this.trainer1.pokemons.length} Pokémon left!`);
+      } else {
+        //IF NO POKEMON LEFT THE MATCH ENDS
+        console.log(`${this.trainer1.name} has no more Pokémon left!`);
+        game = false;
+      }
+
+      //CHECK IF TRAINER 2 HAVE REMAINING POKEMON
+      if (this.trainer2.pokemonLeft()) {
+        console.log(`${this.trainer2.name} has ${this.trainer2.pokemons.length} Pokémon left!`);
+      } else {
+        //IF NO POKEMON LEFT THE MATCH ENDS
+        console.log(`${this.trainer2.name} has no more Pokémon left!`);
+        game = false;
+      }
+    }
+
+    //DETERMINE THE WINNER OF THE MATCH IF TRAINER1 HAVE REMAINING POKEMON
+    if (this.trainer1.pokemonLeft()) {
+      console.log(`${this.trainer1.name} wins the battle!`);
+      this.trainer1.wins++;
+    } else {
+      console.log(`${this.trainer2.name} wins the battle!`);
+      this.trainer2.wins++;
+    }
+  }
+}
+
+//CLASS OF INDIVIDUAL POKEMON BATTLE
+class SingleBattle {
+  constructor(pokemon1, pokemon2) {
+    this.pokemon1 = pokemon1;
+    this.pokemon2 = pokemon2;
+  }
+
+  //STAR THE BATTLE
+  startBattle() {
+    let game = true;
 
     while (game) {
-      console.log("");
+      console.log(``);
+
+      //SHOW POKEMON HP BEFORE EACH TURN
+      console.log(`${this.pokemon1.name} HP: ${this.pokemon1.hp}`);
+      console.log(`${this.pokemon2.name} HP: ${this.pokemon2.hp}`);
       console.log(
         `🔄 %c${this.pokemon1.name}` + " Turn to Attack",
         "border: 1px solid black; padding: 2px; border-radius: 2px; background-color: black; color: white;"
       );
+
       this.pokemon1.attack(this.pokemon2);
-      if (this.pokemon2.hp > 0) {
-        console.log("");
+
+      if (this.pokemon2.hp <= 0) {
+        // console.log(`${this.pokemon2.name} has fainted!`);
+        game = false;
+        this.pokemon1.level++;
+        console.log(`${this.pokemon1.name} has leveled up to level ${this.pokemon1.level}!`);
+      } else {
+        console.log(``);
         console.log(
           `🔄 %c${this.pokemon2.name}` + " Turn to Attack",
           "border: 1px solid black; padding: 2px; border-radius: 2px; background-color: black; color: white;"
         );
         this.pokemon2.attack(this.pokemon1);
-      }
 
-      if (this.pokemon1.hp <= 0 || this.pokemon2.hp <= 0) {
-        game = false;
-      }
-
-      if (this.pokemon1.hp <= 0) {
-        console.log(`${this.pokemon2.name} has Win the battle!`);
-        this.pokemon2.level++;
-        this.trainer2.winCounts();
-        this.trainer1.losses++;
-        console.log(`🢁 ${this.pokemon2.name} has Leveled Up to ${this.pokemon2.level}`);
-        console.log("%c---------------------------", "color: red; font-size: 30px;");
-      }
-
-      if (this.pokemon2.hp <= 0) {
-        console.log(`${this.pokemon1.name} has Win the battle`);
-        this.pokemon1.level++;
-        this.trainer1.winCounts();
-        this.trainer2.losses++;
-        console.log(`🢁 ${this.pokemon1.name} has Leveld Up to ${this.pokemon1.level}`);
-        console.log("%c---------------------------", "color: red; font-size: 30px;");
+        if (this.pokemon1.hp <= 0) {
+          // console.log(`${this.pokemon1.name} has fainted!`);
+          game = false;
+          this.pokemon2.level++;
+          console.log(`${this.pokemon2.name} has leveled up to level ${this.pokemon2.level}!`);
+        }
       }
     }
   }
@@ -330,6 +447,26 @@ class Battle {
 class Tournament {
   constructor(trainers) {
     this.trainers = trainers;
+  }
+
+  // Modify the reviveAndHealPokemon function to use originalPokemons
+  reviveAndHealPokemon(trainers) {
+    trainers.forEach((trainer) => {
+      // Get all Pokémon, including dead ones
+      const allPokemon = trainer.originalPokemons;
+
+      // Revive and heal all Pokémon
+      allPokemon.forEach((pokemon) => {
+        pokemon.hp = 100; // Revive and heal Pokémon
+        console.log(
+          `%c${trainer.name}'s ${pokemon.name} has been revived and fully healed!`,
+          "color: white; border: 1px solid white; padding: 2px; border-radius: 2px;"
+        );
+      });
+
+      // Update the trainer's lineup with all revived Pokémon
+      trainer.pokemons = allPokemon;
+    });
   }
 
   //TOURNAMENT START
@@ -356,6 +493,7 @@ class Tournament {
       }
 
       //MATCH UP THE TRAINERS BASED ON COUNT AND MATCH IS DIFFERENT DEPENDING ON COUNT
+      console.log(`${remainingTrainers.length} trainers remaining in the tournament.`);
       if (remainingTrainers.length === 3) {
         this.roundRobin(remainingTrainers);
       } else {
@@ -368,14 +506,18 @@ class Tournament {
   bracketMatch(trainers) {
     //MATCH UP THE TRAINERS IN PAIR ACCORDING TO INDEX
     //WERE PARINGI UP TRAINERS IN BRACKET FORMAT WHERE EACH PAIR IS CONSIST OF TWO TRAINERS
+    console.log("");
+    console.log("BRACKET MATCH WILL BEGIN");
     for (let i = 0; i < trainers.length - 1; i += 2) {
       const trainer1 = trainers[i];
       const trainer2 = trainers[i + 1];
       console.log("");
       console.log(
-        `       %c  Match between ${trainer1.name} ${trainer1.wins}-Wins ${trainer2.name} ${trainer2.wins}-Wins `,
-        "border: 1px solid black; padding: 2px; border-radius: 2px; font-size: 20px; "
+        `       %c ⚔️  Match [${i + 1}] between ${trainer1.name} 🆚 ${trainer2.name}
+        }-Wins ⚔️ `,
+        "border: 1px solid #87CEEB; padding: 2px; border-radius: 2px; font-size: 20px; "
       );
+
       this.startMatch(trainer1, trainer2);
     }
 
@@ -383,29 +525,71 @@ class Tournament {
     if (trainers.length % 2 !== 0) {
       const lastTrainer = trainers[trainers.length - 1];
       console.log(
-        `       %c  ${lastTrainer.name} Won by Default and Move into the Semi-Finals!`,
+        `       %c  ${lastTrainer.name} Won by Default and Move into the Round Robin Format!`,
         "border: 1px solid black; padding: 2px; border-radius: 2px; font-size: 20px; "
       );
     }
   }
 
   //ROUND ROBIN
-
   roundRobin(trainers) {
+    console.log("");
+    console.log(
+      "c%🏆ROUND ROBIN MATCH WILL BEGIN🏆",
+      "border: 1px solid white; padding: 2px; border-radius: 2px; font-size: 25px; "
+    );
+
+    this.reviveAndHealPokemon(trainers); // Revive and heal all Pokémon
+
+    // Revive and fully heal all Pokémon of remaining trainers
+    // trainers.forEach((trainer) => {
+    //   trainer.pokemons.forEach((pokemon) => {
+    //     if (pokemon.isDead()) {
+    //       // Revive fainted Pokémon
+    //       pokemon.hp = 100; // Assume 100 is the max HP
+    //       console.log(`${trainer.name}'s ${pokemon.name} has been revived and fully healed!`);
+    //     } else {
+    //       // Heal Pokémon that are not fainted
+    //       pokemon.hp = 100;
+    //       console.log(`${trainer.name}'s ${pokemon.name} has been fully healed!`);
+    //     }
+    //   });
+    // });
+
+    // Initialize a map to track wins for each trainer
+    const winsMap = new Map();
+    trainers.forEach((trainer) => winsMap.set(trainer, 0));
+
     //MATCH UP THE TRAINERS IN PAIR ACCORDING TO INDEX LOOP UNTIL THE LAST INDEX
     //THIS 2 FOR LOOP WILL RESULT 1 TRAINER WILL MATCH TO ALL REMAINING PLAYERS
     for (let i = 0; i < trainers.length; i++) {
       for (let j = i + 1; j < trainers.length; j++) {
         const trainer1 = trainers[i];
         const trainer2 = trainers[j];
+        // Revive and heal all Pokémon for both trainers
+
         console.log("");
         console.log(
-          `       %c ⚔️  Match between ${trainer1.name} ${trainer1.wins}-Wins 🆚 ${trainer2.name} ${trainer2.wins}-Wins ⚔️ `,
-          "border: 1px solid black; padding: 2px; border-radius: 2px; font-size: 20px; "
+          `       %c ⚔️  Match [${i + 1}] between ${trainer1.name} 🆚 ${trainer2.name}
+          }-Wins ⚔️ `,
+          "border: 1px solid #87CEEB; padding: 2px; border-radius: 2px; font-size: 20px; "
         );
+        this.reviveAndHealPokemon([trainer1, trainer2]);
 
-        //CALL METHOD TO START THE BATTLE BETWEEN THE PAIRED TRAINERS
-        this.startMatch(trainer1, trainer2);
+        // Start a battle between trainers
+        const battle = new Battle(trainer1.nextPokemon(), trainer2.nextPokemon(), trainer1, trainer2);
+        battle.startBattle();
+
+        // Update wins for the winner
+        if (trainer1.pokemonLeft()) {
+          winsMap.set(trainer1, winsMap.get(trainer1) + 1);
+        } else if (trainer2.pokemonLeft()) {
+          winsMap.set(trainer2, winsMap.get(trainer2) + 1);
+        }
+
+        console.log(
+          `🏆 ${trainer1.name} Wins: ${winsMap.get(trainer1)} | ${trainer2.name} Wins: ${winsMap.get(trainer2)}`
+        );
       }
     }
   }
@@ -432,6 +616,7 @@ class Tournament {
 
     // Remove fainted Pokémon
     trainer1.pokemons = trainer1.pokemons.filter((pokemon) => !pokemon.isDead());
+
     trainer2.pokemons = trainer2.pokemons.filter((pokemon) => !pokemon.isDead());
 
     if (trainer1.pokemons.length === 0) {
@@ -441,6 +626,9 @@ class Tournament {
     if (trainer2.pokemons.length === 0) {
       console.log(`${trainer2.name} is out of the tournament!`);
     }
+
+    //RETURN THE WINNER OF THE MATCH
+    return trainer1.pokemons.length > 0 ? trainer1 : trainer2;
   }
 }
 
@@ -484,14 +672,14 @@ function startGame() {
   while (isNaN(numberOfTrainer) || numberOfTrainer < 3 || numberOfTrainer > 5) {
     numberOfTrainer = parseInt(prompt("Enter Number of Trainers (Max 5)"));
     if (isNaN(numberOfTrainer)) {
-      console.log("Invalid input. Please enter a number.");
-    } else if (numberOfTrainer < 1) {
-      console.log("Minimum number of trainers is 3.");
+      console.log("%cInvalid input. Please enter a number.", "color: red; font-weight: bold; font-size: 50px;");
+    } else if (numberOfTrainer < 3) {
+      console.log("%cMinimum number of trainers is 3.", "color: red; font-weight: bold; font-size: 50px;");
     } else if (numberOfTrainer > 5) {
-      console.log("Maximum number of trainers is 5.");
+      console.log("%cMaximum number of trainers is 5.", "color: red; font-weight: bold; font-size: 50px;");
     }
   }
-  console.log(`DONE SELECTING NUMBER OF TRAINERS `);
+  console.log(`%cDONE SELECTING NUMBER OF TRAINERS `, "color: green; font-weight: bold; font-size: 50px;");
 
   // PROMT ASK USER TO PUT # OF POKEMON
   let numberOfPokemon;
@@ -499,14 +687,14 @@ function startGame() {
   while (isNaN(numberOfPokemon) || numberOfPokemon < 2 || numberOfPokemon > 5) {
     numberOfPokemon = parseInt(prompt("Enter Number of Pokekon (Max 5)"));
     if (isNaN(numberOfPokemon)) {
-      console.log("Invalid input. Please enter a number.");
+      console.log("%cInvalid input. Please enter a number.", "color: red; font-weight: bold; font-size: 50px;");
     } else if (numberOfPokemon < 2) {
-      console.log("Minimum number of Pokémon is 2.");
+      console.log("%cMinimum number of Pokémon is 2.", "color: red; font-weight: bold; font-size: 50px;");
     } else if (numberOfPokemon > 5) {
-      console.log("Maximum number of Pokémon is 5.");
+      console.log("%cMaximum number of Pokémon is 5.", "color: red; font-weight: bold; font-size: 50px;");
     }
   }
-  console.log(`DONE SELECTING NUMBER OF POKEMON `);
+  console.log(`%cDONE SELECTING NUMBER OF POKEMONS `, "color: green; font-weight: bold; font-size: 50px;");
 
   // ADDING TRAINER NAME AND SELECTING POKEMON INSIDE A LOOP
   for (let i = 1; i <= numberOfTrainer; i++) {
@@ -519,7 +707,10 @@ function startGame() {
       // SHOWING ALL AVAILABLE POKEMON USING FOREACH FUNCTION
       console.log("");
       console.log("");
-      console.log(`SELECT POKEMON[${j}] POKEMON FROM AVAILABLE POKEMON FOR TRAINER: ${newTrainer.name}`);
+      console.log(
+        `%c 👇SELECT POKEMON[${j}] POKEMON FROM AVAILABLE POKEMON FOR TRAINER: ▶${newTrainer.name}◀`,
+        "color: white; font-weight: bold; font-size: 30px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+      );
 
       // FILTERING OUT ALL POKEMON THAT ARE ALREADY IN A TRAINER SO POKEMON WILL NOT REPEAT
       const availablePokemon = allPokemon.filter(
@@ -529,7 +720,8 @@ function startGame() {
       //SHOW ALL AVAILABLE POKEMON
       availablePokemon.forEach((pokemon, index) => {
         console.log(
-          `[${index + 1}] ${pokemon.name} | LEVEL: ${pokemon.level} | TYPE:${pokemon.type} | HP:${pokemon.hp}`
+          `%c[${index + 1}] ◓${pokemon.name} | ⭐LEVEL: ${pokemon.level} | ⚛TYPE:${pokemon.type} | ❤️HP:${pokemon.hp}`,
+          "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
         );
       });
 
@@ -553,7 +745,10 @@ function startGame() {
       const selectedPokemon = availablePokemon[selectedPokemonIndex - 1]; // Subtract 1 to get the correct index based on user input
 
       console.log("");
-      console.log(`${newTrainer.name} choose ${selectedPokemon.name} as their pokemon`);
+      console.log(
+        `%c${newTrainer.name} choose ${selectedPokemon.name} as their pokemon`,
+        "color: red; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px; background-color: #FF69B4;"
+      );
       newTrainer.choosePokemon(selectedPokemon);
     }
   }
@@ -561,19 +756,41 @@ function startGame() {
   console.log("");
 
   // SHOWING ALL TEAM AND THEIR POKEMON USING MAP FUNCTION
+  console.log(`%c╔═══════════════•●•═══════════════╗`, "color: red; font-weight: bold; font-size: 20px;");
+
   trainers.forEach((trainer) =>
-    console.log(`${trainer.name}'s team: ${trainer.pokemons.map((pokemon) => pokemon.name)}`)
+    console.log(
+      `   %c${trainer.name}'s team: ${trainer.pokemons.map((pokemon) => pokemon.name)}`,
+      "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+    )
   );
+
+  console.log(`%c╚═══════════════•●•═══════════════╝`, "color: red; font-weight: bold; font-size: 20px;");
 
   // MENU
   while (true) {
     console.log("");
 
-    console.log("╔═════════════════《MAIN MENU》══════════════╗");
-    console.log("          [1] - View Trainers' Pokémon");
-    console.log("          [2] - Start Tournament");
-    console.log("          [3] - Exit");
-    console.log("╚═════════════════════《✧》══════════════════╝");
+    console.log(
+      "%c╔═════════════════《MAIN MENU》══════════════╗",
+      "color: yellow; font-weight: bold; font-size: 20px;"
+    );
+    console.log(
+      "          %c[1] - View Trainers' Pokémon",
+      "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+    );
+    console.log(
+      "          %c[2] - Start Tournament",
+      "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+    );
+    console.log(
+      "          %c[3] - Exit",
+      "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+    );
+    console.log(
+      "%c╚═════════════════════《✧》══════════════════╝",
+      "color: yellow; font-weight: bold; font-size: 20px;"
+    );
 
     let choice;
     while (isNaN(choice) || choice < 1 || choice > 3) {
@@ -609,57 +826,3 @@ function startGame() {
 }
 
 startGame();
-
-//CREATING NEW TRAINER ADD ADD POKEMONS IN THEIR TEAM
-// let randompick = Math.floor(Math.random() * 2); // RANDOMIZE PICK OF POKEMON
-
-// const ash = new Trainer("Ash", "Male");
-// ash.choosePokemon(charizard);
-// ash.choosePokemon(charmander);
-// let ashPokemon = ash.selectPokemon(randompick);
-// ash.showPokemon();
-// console.log("");
-
-// const brok = new Trainer("Brok", "Male");
-// brok.choosePokemon(stone);
-// brok.choosePokemon(machop);
-// let brokPokemon = brok.selectPokemon(randompick);
-// brok.showPokemon();
-// console.log("");
-
-// const misty = new Trainer("Misty", "Female");
-// misty.choosePokemon(starfish);
-// misty.choosePokemon(squirtle);
-// let mistyPokemon = brok.selectPokemon(randompick);
-// misty.showPokemon();
-// console.log("");
-
-// const lulu = new Trainer("Lulu", "Female");
-// lulu.choosePokemon(birdy);
-// lulu.choosePokemon(zubat);
-// let luluPokemon = lulu.selectPokemon(randompick);
-// lulu.showPokemon();
-// console.log("");
-
-// const jiji = new Trainer("Jiji", "Female");
-// jiji.choosePokemon(gengar);
-// jiji.choosePokemon(mew);
-// let jijiPokemon = jiji.selectPokemon(randompick);
-// jiji.showPokemon();
-// console.log("");
-
-// const carl = new Trainer("Carl", "Male");
-// carl.choosePokemon(cosmoem);
-// carl.choosePokemon(necrozma);
-// let carlPokemon = carl.selectPokemon(randompick);
-// carl.showPokemon();
-// console.log("");
-
-//BATTLE BEGIN INDIVIDUAL BATTLE
-// let battle = new Battle(ashPokemon, brokPokemon);
-// battle.startBattle();
-
-// TOURNAMENT SETUP
-// const trainers = [ash, brok, misty, lulu, jiji, carl];
-// const tournament = new Tournament(trainers);
-// tournament.startTournament();
