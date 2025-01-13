@@ -522,6 +522,9 @@ class Tournament {
             "border: 1px solid red; padding: 2px; border-radius: 2px; background-color: red; color: white; font-size: 25px; "
           );
           break;
+        } else if (remainingTrainers.every((trainer) => trainer.wins === 1)) {
+          console.log(`All Trainers Will Rematch because of Tie Scores.`);
+          this.roundRobin(remainingTrainers);
         }
       }
 
