@@ -72,13 +72,17 @@ console.log(
 //POKEMON BASE CLASS
 
 class Pokemon {
-  constructor(name, type, level, hp, def) {
+  constructor(name, type, level, hp, def, skill1, skill2, skill3, skill4) {
     this.name = name;
     this.type = type;
     this.level = level;
     this.hp = hp;
     // this.atk = atk;
     this.def = def;
+    this.skill1 = skill1;
+    this.skill2 = skill2;
+    this.skill3 = skill3;
+    this.skill4 = skill4;
   }
 
   attack(opponent) {
@@ -96,7 +100,7 @@ class Pokemon {
   }
 
   heal() {
-    let randomhp = Math.floor(Math.random() * (15 - 5)) + 5;
+    let randomhp = Math.floor(Math.random() * (5 - 1)) + 1;
     let defboost = (this.def = +5);
     this.hp = Math.min(this.hp + defboost + randomhp, 100); // THIS CODE LET HP NOT EXCEED 100
     console.log(`${this.name} active unique passive skill and gained [${defboost}] Defense and heal [${randomhp}] HP `);
@@ -117,7 +121,7 @@ class Pokemon {
       isSuperEffective = true;
     }
 
-    const dmgMultiplier = isSuperEffective ? 0.5 : 0.2;
+    const dmgMultiplier = isSuperEffective ? 0.5 : 0.25;
     const damage = Math.floor(this.level * (Math.random() * (maxDamage - minDamage) + minDamage) * dmgMultiplier);
 
     console.log(
@@ -186,7 +190,10 @@ class Trainer {
   }
 
   showOriginalPokemon() {
-    console.log(`  ${this.name}'s team: ${this.originalPokemons.map((pokemon) => pokemon.name)}`);
+    console.log(
+      `  %c${this.name}'s team: ${this.originalPokemons.map((pokemon) => pokemon.name)}`,
+      "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+    );
   }
 
   showTrainerDetails() {}
@@ -211,122 +218,249 @@ class Trainer {
 
 //ADDING SUBCLASS USING POLYMORPSIM AND INHERITANCE
 class FirePokemon extends Pokemon {
-  constructor(name, level, hp) {
-    super(name, "Fire", level, hp);
+  constructor(name, level, hp, def) {
+    super(name, "Fire", level, hp, def, "Takle", "Flame Thrower", "Fire Blast", "Fire Spin");
   }
 
   attack(opponent) {
-    console.log("");
-    console.log(
-      `%c${this.name} use FlameThrower💥 on ${opponent.name}!`,
-      "border: 1px solid orange; padding: 2px; border-radius: 2px; background-color: orange; color: black;"
-    );
-    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
-    opponent.receivedDamage(damage);
-    if (opponent.type === "Rock") {
-      console.log("SUPER EFFECTIVE");
-      opponent.heal(); //UNIQUE SKILL HEAL
+    //ARRAY SKILLS
+    const skills = [this.skill1, this.skill2, this.skill3, this.skill4];
+    //SHOW SKILL BASED ON LEVEL
+    const availableSkills = skills.slice(0, this.level);
+
+    let selectedSkillIndex;
+
+    //PROMNT TO SELECT SKILL
+    while (true) {
+      selectedSkillIndex = prompt(
+        `Choose a skill for ${this.name} to use: ${availableSkills
+          .map((skill, index) => `\n[${index + 1}] ${skill}`)
+          .join(" ")}`
+      );
+
+      if (isNaN(selectedSkillIndex) || selectedSkillIndex < 1 || selectedSkillIndex > availableSkills.length) {
+        console.log("Invalid input. Please enter a number between 1 and " + availableSkills.length);
+      } else {
+        const selectedSkill = availableSkills[selectedSkillIndex - 1];
+        console.log("");
+        console.log(
+          `%c${this.name} use ${selectedSkill} on ${opponent.name}!`,
+          "border: 1px solid orange; padding: 2px; border-radius: 2px; background-color: orange; color: black; font-size: 15px;"
+        );
+        let damage = this.calculateDamage(opponent.type, 50, 80); //DEALING CRITCAL HIT ON MASMAHINA
+        opponent.receivedDamage(damage);
+        if (opponent.type === "Rock") {
+          opponent.heal(); //UNIQUE SKILL HEAL
+        }
+        break;
+      }
     }
   }
 }
 
 class RockPokemon extends Pokemon {
-  constructor(name, level, hp) {
-    super(name, "Rock", level, hp);
+  constructor(name, level, hp, def) {
+    super(name, "Rock", level, hp, def, "Takle", "Rock Throw", "Rock Slide", "Earthquake");
   }
 
   attack(opponent) {
-    console.log("");
-    console.log(
-      `%c${this.name} use RockDrive💩 on ${opponent.name}!`,
-      "border: 1px solid brown; padding: 2px; border-radius: 2px; background-color: brown; color: white;"
-    );
-    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
-    opponent.receivedDamage(damage);
-    if (opponent.type === "Water") {
-      console.log("SUPER EFFECTIVE");
-      opponent.heal(); //UNIQUE SKILL HEAL
+    //ARRAY SKILLS
+    const skills = [this.skill1, this.skill2, this.skill3, this.skill4];
+    //SHOW SKILL BASED ON LEVEL
+    const availableSkills = skills.slice(0, this.level);
+
+    let selectedSkillIndex;
+
+    //PROMNT TO SELECT SKILL
+    while (true) {
+      selectedSkillIndex = prompt(
+        `Choose a skill for ${this.name} to use: ${availableSkills
+          .map((skill, index) => `\n[${index + 1}] ${skill}`)
+          .join(" ")}`
+      );
+
+      if (isNaN(selectedSkillIndex) || selectedSkillIndex < 1 || selectedSkillIndex > availableSkills.length) {
+        console.log("Invalid input. Please enter a number between 1 and " + availableSkills.length);
+      } else {
+        const selectedSkill = availableSkills[selectedSkillIndex - 1];
+        console.log("");
+        console.log(
+          `%c${this.name} use ${selectedSkill} on ${opponent.name}!`,
+          "border: 1px solid #A52A2A; padding: 2px; border-radius: 2px; background-color: #A52A2A; color: white; font-size: 15px;"
+        );
+        let damage = this.calculateDamage(opponent.type, 50, 80); //DEALING CRITCAL HIT ON MASMAHINA
+        opponent.receivedDamage(damage);
+        if (opponent.type === "Water") {
+          opponent.heal(); //UNIQUE SKILL HEAL
+        }
+        break;
+      }
     }
   }
 }
 
 class WaterPokemon extends Pokemon {
-  constructor(name, level, hp) {
-    super(name, "Water", level, hp);
+  constructor(name, level, hp, def) {
+    super(name, "Water", level, hp, def, "Takle", "Water Gun", "Water Pulse", "Hydro Pump");
   }
 
   attack(opponent) {
-    console.log("");
-    console.log(
-      `%c${this.name} use WaterGun💦 on ${opponent.name}!`,
-      "border: 1px solid skyblue; padding: 2px; border-radius: 2px; background-color: skyblue; color: black;"
-    );
-    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
-    opponent.receivedDamage(damage);
-    if (opponent.type === "Grass") {
-      console.log("SUPER EFFECTIVE");
-      opponent.heal(); //UNIQUE SKILL HEAL
+    //ARRAY SKILLS
+    const skills = [this.skill1, this.skill2, this.skill3, this.skill4];
+    //SHOW SKILL BASED ON LEVEL
+    const availableSkills = skills.slice(0, this.level);
+
+    let selectedSkillIndex;
+
+    //PROMNT TO SELECT SKILL
+    while (true) {
+      selectedSkillIndex = prompt(
+        `Choose a skill for ${this.name} to use: ${availableSkills
+          .map((skill, index) => `\n[${index + 1}] ${skill}`)
+          .join(" ")}`
+      );
+
+      if (isNaN(selectedSkillIndex) || selectedSkillIndex < 1 || selectedSkillIndex > availableSkills.length) {
+        console.log("Invalid input. Please enter a number between 1 and " + availableSkills.length);
+      } else {
+        const selectedSkill = availableSkills[selectedSkillIndex - 1];
+        console.log("");
+        console.log(
+          `%c${this.name} use ${selectedSkill} on ${opponent.name}!`,
+          "border: 1px solid #7CB9E8; padding: 2px; border-radius: 2px; background-color: #7CB9E8; color: black; font-size: 15px;"
+        );
+        let damage = this.calculateDamage(opponent.type, 50, 80); //DEALING CRITCAL HIT ON MASMAHINA
+        opponent.receivedDamage(damage);
+        if (opponent.type === "Grass") {
+          opponent.heal(); //UNIQUE SKILL HEAL
+        }
+        break;
+      }
     }
   }
 }
 
 class GrassPokemon extends Pokemon {
-  constructor(name, level, hp) {
-    super(name, "Grass", level, hp);
+  constructor(name, level, hp, def) {
+    super(name, "Grass", level, hp, def, "Takle", "Vine Whip", "Razor Leaf", "Solar Beam");
   }
 
   attack(opponent) {
-    console.log("");
-    console.log(
-      `%c${this.name} use VineWhip🌱 on ${opponent.name}!`,
-      "border: 1px solid #3E7B27; padding: 2px; border-radius: 2px; background-color: #3E7B27; color: white;"
-    );
+    //ARRAY SKILLS
+    const skills = [this.skill1, this.skill2, this.skill3, this.skill4];
+    //SHOW SKILL BASED ON LEVEL
+    const availableSkills = skills.slice(0, this.level);
 
-    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
-    opponent.receivedDamage(damage);
-    if (opponent.type === "Dark") {
-      console.log("SUPER EFFECTIVE");
-      opponent.heal(); //UNIQUE SKILL HEAL
+    let selectedSkillIndex;
+
+    //PROMNT TO SELECT SKILL
+    while (true) {
+      selectedSkillIndex = prompt(
+        `Choose a skill for ${this.name} to use: ${availableSkills
+          .map((skill, index) => `\n[${index + 1}] ${skill}`)
+          .join(" ")}`
+      );
+
+      if (isNaN(selectedSkillIndex) || selectedSkillIndex < 1 || selectedSkillIndex > availableSkills.length) {
+        console.log("Invalid input. Please enter a number between 1 and " + availableSkills.length);
+      } else {
+        const selectedSkill = availableSkills[selectedSkillIndex - 1];
+        console.log("");
+        console.log(
+          `%c${this.name} use ${selectedSkill} on ${opponent.name}!`,
+          "border: 1px solid #32de84; padding: 2px; border-radius: 2px; background-color: #32de84; color: black; font-size: 15px;"
+        );
+        let damage = this.calculateDamage(opponent.type, 50, 80); //DEALING CRITCAL HIT ON MASMAHINA
+        opponent.receivedDamage(damage);
+        if (opponent.type === "Dark") {
+          opponent.heal(); //UNIQUE SKILL HEAL
+        }
+        break;
+      }
     }
   }
 }
 
 class DarkPokemon extends Pokemon {
-  constructor(name, level, hp) {
-    super(name, "Dark", level, hp);
+  constructor(name, level, hp, def) {
+    super(name, "Dark", level, hp, def, "Takle", "Night Shade", "Shadow Ball", "Dark Pulse");
   }
 
   attack(opponent) {
-    console.log("");
-    console.log(
-      `%c${this.name} use BlackHole🌑 on ${opponent.name}!`,
-      "border: 1px solid #3E5879; padding: 2px; border-radius: 2px; background-color: #3E5879; color: white;"
-    );
-    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
-    opponent.receivedDamage(damage);
-    if (opponent.type === "Light") {
-      console.log("SUPER EFFECTIVE");
-      opponent.heal(); //UNIQUE SKILL HEAL
+    //ARRAY SKILLS
+    const skills = [this.skill1, this.skill2, this.skill3, this.skill4];
+    //SHOW SKILL BASED ON LEVEL
+    const availableSkills = skills.slice(0, this.level);
+
+    let selectedSkillIndex;
+
+    //PROMNT TO SELECT SKILL
+    while (true) {
+      selectedSkillIndex = prompt(
+        `Choose a skill for ${this.name} to use: ${availableSkills
+          .map((skill, index) => `\n[${index + 1}] ${skill}`)
+          .join(" ")}`
+      );
+
+      if (isNaN(selectedSkillIndex) || selectedSkillIndex < 1 || selectedSkillIndex > availableSkills.length) {
+        console.log("Invalid input. Please enter a number between 1 and " + availableSkills.length);
+      } else {
+        const selectedSkill = availableSkills[selectedSkillIndex - 1];
+        console.log("");
+        console.log(
+          `%c${this.name} use ${selectedSkill} on ${opponent.name}!`,
+          "border: 1px solid #452c63; padding: 2px; border-radius: 2px; background-color: #452c63; color: white; font-size: 15px;"
+        );
+        let damage = this.calculateDamage(opponent.type, 50, 80); //DEALING CRITCAL HIT ON MASMAHINA
+        opponent.receivedDamage(damage);
+        if (opponent.type === "Light") {
+          console.log("SUPER EFFECTIVE");
+          opponent.heal(); //UNIQUE SKILL HEAL
+        }
+        break;
+      }
     }
   }
 }
 
 class LightPokemon extends Pokemon {
-  constructor(name, level, hp) {
-    super(name, "Light", level, hp);
+  constructor(name, level, hp, def) {
+    super(name, "Light", level, hp, def, "Takle", "Light Screen", "Reflect", "Light Pulse");
   }
 
   attack(opponent) {
-    console.log("");
-    console.log(
-      `%c${this.name} use Light Magic✨ on ${opponent.name}!`,
-      "border: 1px solid #FFF574; padding: 2px; border-radius: 2px; background-color: #FFF574; color: black;"
-    );
-    let damage = this.calculateDamage(opponent.type, 6, 10); //DEALING CRITCAL HIT ON MASMAHINA
-    opponent.receivedDamage(damage);
-    if (opponent.type === "Fire") {
-      console.log("SUPER EFFECTIVE");
-      opponent.heal(); //UNIQUE SKILL HEAL
+    //ARRAY SKILLS
+    const skills = [this.skill1, this.skill2, this.skill3, this.skill4];
+    //SHOW SKILL BASED ON LEVEL
+    const availableSkills = skills.slice(0, this.level);
+
+    let selectedSkillIndex;
+
+    //PROMNT TO SELECT SKILL
+    while (true) {
+      selectedSkillIndex = prompt(
+        `Choose a skill for ${this.name} to use: ${availableSkills
+          .map((skill, index) => `\n[${index + 1}] ${skill}`)
+          .join(" ")}`
+      );
+
+      if (isNaN(selectedSkillIndex) || selectedSkillIndex < 1 || selectedSkillIndex > availableSkills.length) {
+        console.log("Invalid input. Please enter a number between 1 and " + availableSkills.length);
+      } else {
+        const selectedSkill = availableSkills[selectedSkillIndex - 1];
+        console.log("");
+        console.log(
+          `%c${this.name} use ${selectedSkill} on ${opponent.name}!`,
+          "border: 1px solid #FFFF00; padding: 2px; border-radius: 2px; background-color: #FFFF00; color: black; font-size: 15px;"
+        );
+        let damage = this.calculateDamage(opponent.type, 50, 80); //DEALING CRITCAL HIT ON MASMAHINA
+        opponent.receivedDamage(damage);
+        if (opponent.type === "Fire") {
+          console.log("SUPER EFFECTIVE");
+          opponent.heal(); //UNIQUE SKILL HEAL
+        }
+        break;
+      }
     }
   }
 }
@@ -402,11 +536,11 @@ class Battle {
     //DETERMINE THE WINNER OF THE MATCH IF TRAINER1 HAVE REMAINING POKEMON
     if (this.trainer1.pokemonLeft()) {
       console.log(`${this.trainer1.name} wins the battle!`);
-      this.trainer1.overallWins += 1;
+      // this.trainer1.overallWins++;
       // console.log(`${this.trainer1.wins} ${this.trainer1.name}`);
     } else {
       console.log(`${this.trainer2.name} wins the battle!`);
-      this.trainer2.overallWins += 1;
+      // this.trainer2.overallWins++;
       // console.log(`${this.trainer2.wins} ${this.trainer2.name}`);
     }
   }
@@ -552,23 +686,6 @@ class Tournament {
       const trainer1 = trainers[i];
       const trainer2 = trainers[i + 1];
 
-      // //FIX THE BUG AFTER ROUND ROBIN THE MATCH WILL CONTINUE IN BRACKET MATCH
-      // if (trainers.length === 2) {
-      //   if (trainer1.wins > trainer2.wins) {
-      //     console.log(
-      //       `%c 👑 The tournament is over! ${trainer1.name}  is the overall winner! 👑`,
-      //       "border: 1px solid red; padding: 2px; border-radius: 2px; background-color: red; color: white; font-size: 25px; "
-      //     );
-      //     return; // Exit the function because break; is not working
-      //   } else {
-      //     console.log(
-      //       `%c 👑 The tournament is over! ${trainer2.name}  is the overall winner! 👑`,
-      //       "border: 1px solid red; padding: 2px; border-radius: 2px; background-color: red; color: white; font-size: 25px; "
-      //     );
-      //     return; // Exit the function because break; is not working
-      //   }
-      // }
-
       console.log("");
       console.log(
         `       %c ⚔️  Match Between ${trainer1.name} 🆚 ${trainer2.name} ⚔️ `,
@@ -596,11 +713,8 @@ class Tournament {
       "border: 1px solid white; padding: 2px; border-radius: 2px; font-size: 25px; "
     );
 
-    this.reviveAndHealPokemon(trainers); // Revive and heal all Pokémon
-
-    // Initialize a map to track wins for each trainer
-    // const winsMap = new Map();
-    // trainers.forEach((trainer) => winsMap.set(trainer, 0));
+    // Revive and heal all Pokémon
+    this.reviveAndHealPokemon(trainers);
 
     //MATCH UP THE TRAINERS IN PAIR ACCORDING TO INDEX LOOP UNTIL THE LAST INDEX
     //THIS 2 FOR LOOP WILL RESULT 1 TRAINER WILL MATCH TO ALL REMAINING PLAYERS
@@ -615,6 +729,7 @@ class Tournament {
           "border: 1px solid #87CEEB; padding: 2px; border-radius: 2px; font-size: 20px; "
         );
 
+        // Revive and heal all Pokémon
         this.reviveAndHealPokemon([trainer1, trainer2]);
 
         // // Start a match between the two trainers With PowerUp
@@ -626,10 +741,8 @@ class Tournament {
 
         // Update wins for the winner
         if (trainer1.pokemonLeft()) {
-          // winsMap.set(trainer1, winsMap.get(trainer1) + 1);
           trainer1.wins += 1;
         } else if (trainer2.pokemonLeft()) {
-          // winsMap.set(trainer2, winsMap.get(trainer2) + 1);
           trainer2.wins += 1;
         }
 
@@ -670,10 +783,12 @@ class Tournament {
 
     if (trainer1.pokemons.length === 0) {
       console.log(`${trainer1.name} is out of the tournament!`);
+      trainer2.overallWins++;
     }
 
     if (trainer2.pokemons.length === 0) {
       console.log(`${trainer2.name} is out of the tournament!`);
+      trainer1.overallWins++;
     }
 
     //RETURN THE WINNER OF THE MATCH
@@ -682,31 +797,31 @@ class Tournament {
 }
 
 //CREATING POKEMON/ INSTANTIATE POKEMON
-const charizard = new FirePokemon("Charizard", 10, 100, 0);
-const stone = new RockPokemon("Stone", 10, 100, 0);
-const starfish = new WaterPokemon("Starfish", 10, 100, 0);
-const birdy = new GrassPokemon("Birdy", 10, 100, 0);
-const gengar = new DarkPokemon("Gengar", 10, 100, 0);
-const charmander = new FirePokemon("Charmander", 10, 100, 0);
-const machop = new RockPokemon("Machop", 10, 100, 0);
-const squirtle = new WaterPokemon("Squirtle", 10, 100, 0);
-const zubat = new GrassPokemon("Zubat", 10, 100, 0);
-const mew = new DarkPokemon("Mew", 10, 100, 0);
-const necrozma = new LightPokemon("Necrozma", 10, 100, 0);
-const cosmoem = new LightPokemon("Cosmoem", 10, 100, 0);
-const emboar = new FirePokemon("Emboar", 10, 100, 0);
-const onix = new RockPokemon("Onix", 10, 100, 0);
-const psyduck = new WaterPokemon("Psyduck", 10, 100, 0);
-const leafeon = new GrassPokemon("Lefeon", 10, 100, 0);
-const poochyena = new DarkPokemon("Poochyena", 10, 100, 0);
-const lumeon = new LightPokemon("Lumeon", 10, 100, 0);
-const vulpix = new FirePokemon("Vulpix", 10, 100, 0);
-const omanyte = new RockPokemon("Omanyte", 10, 100, 0);
-const goldeen = new WaterPokemon("Goldeen", 10, 100, 0);
-const chikorita = new GrassPokemon("Chikorita", 10, 100, 0);
-const houndoom = new DarkPokemon("Houndoom", 10, 100, 0);
-const luxray = new LightPokemon("Luxray", 10, 100, 0);
-const flareon = new FirePokemon("Flareon", 10, 100, 0);
+const charizard = new FirePokemon("Charizard", 1, 100, 0);
+const stone = new RockPokemon("Stone", 1, 100, 0);
+const starfish = new WaterPokemon("Starfish", 1, 100, 0);
+const birdy = new GrassPokemon("Birdy", 1, 100, 0);
+const gengar = new DarkPokemon("Gengar", 1, 100, 0);
+const charmander = new FirePokemon("Charmander", 1, 100, 0);
+const machop = new RockPokemon("Machop", 1, 100, 0);
+const squirtle = new WaterPokemon("Squirtle", 1, 100, 0);
+const zubat = new GrassPokemon("Zubat", 1, 100, 0);
+const mew = new DarkPokemon("Mew", 1, 100, 0);
+const necrozma = new LightPokemon("Necrozma", 1, 100, 0);
+const cosmoem = new LightPokemon("Cosmoem", 1, 100, 0);
+const emboar = new FirePokemon("Emboar", 1, 100, 0);
+const onix = new RockPokemon("Onix", 1, 100, 0);
+const psyduck = new WaterPokemon("Psyduck", 1, 100, 0);
+const leafeon = new GrassPokemon("Lefeon", 1, 100, 0);
+const poochyena = new DarkPokemon("Poochyena", 1, 100, 0);
+const lumeon = new LightPokemon("Lumeon", 1, 100, 0);
+const vulpix = new FirePokemon("Vulpix", 1, 100, 0);
+const omanyte = new RockPokemon("Omanyte", 1, 100, 0);
+const goldeen = new WaterPokemon("Goldeen", 1, 100, 0);
+const chikorita = new GrassPokemon("Chikorita", 1, 100, 0);
+const houndoom = new DarkPokemon("Houndoom", 1, 100, 0);
+const luxray = new LightPokemon("Luxray", 1, 100, 0);
+const flareon = new FirePokemon("Flareon", 1, 100, 0);
 
 //ARRAY OF POKEMON
 let allPokemon = [
@@ -745,7 +860,8 @@ function startGame() {
   // PROMPT ASK USER TO PUT # OF TRAINER
   let numberOfTrainer;
   while (isNaN(numberOfTrainer) || numberOfTrainer < 3 || numberOfTrainer > 5) {
-    numberOfTrainer = parseInt(prompt("Enter Number of Trainers (Max 5)"));
+    console.log("%cEnter Number of Trainers From 3 to 5.", "color: green; font-weight: bold; font-size: 50px;");
+    numberOfTrainer = parseInt(prompt("Enter Number of Trainers From 3 to 5."));
     if (isNaN(numberOfTrainer)) {
       console.log("%cInvalid input. Please enter a number.", "color: red; font-weight: bold; font-size: 50px;");
     } else if (numberOfTrainer < 3) {
@@ -759,12 +875,13 @@ function startGame() {
   // PROMT ASK USER TO PUT # OF POKEMON
   let numberOfPokemon;
   //ERROR HANDLING IF INPUT IS NEGATIVE OR GREATER THAN 5
-  while (isNaN(numberOfPokemon) || numberOfPokemon < 2 || numberOfPokemon > 5) {
-    numberOfPokemon = parseInt(prompt("Enter Number of Pokekon (Max 5)"));
+  while (isNaN(numberOfPokemon) || numberOfPokemon < 1 || numberOfPokemon > 5) {
+    console.log("%cEnter Number of Pokemon From 1 to 5.", "color: green; font-weight: bold; font-size: 50px;");
+    numberOfPokemon = parseInt(prompt("Enter Number of Trainers From 1 to 5."));
     if (isNaN(numberOfPokemon)) {
       console.log("%cInvalid input. Please enter a number.", "color: red; font-weight: bold; font-size: 50px;");
-    } else if (numberOfPokemon < 2) {
-      console.log("%cMinimum number of Pokémon is 2.", "color: red; font-weight: bold; font-size: 50px;");
+    } else if (numberOfPokemon < 1) {
+      console.log("%cMinimum number of Pokémon is 1.", "color: red; font-weight: bold; font-size: 50px;");
     } else if (numberOfPokemon > 5) {
       console.log("%cMaximum number of Pokémon is 5.", "color: red; font-weight: bold; font-size: 50px;");
     }
@@ -842,7 +959,7 @@ function startGame() {
 
   console.log(`%c╚═══════════════•●•═══════════════╝`, "color: red; font-weight: bold; font-size: 20px;");
 
-  // MENU
+  //2nd MENU
   while (true) {
     console.log("");
 
@@ -863,7 +980,7 @@ function startGame() {
       "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
     );
     console.log(
-      "          %c[4] - Exit",
+      "          %c[4] - Back",
       "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
     );
     console.log(
@@ -871,6 +988,7 @@ function startGame() {
       "color: yellow; font-weight: bold; font-size: 20px;"
     );
 
+    //ERROR HANDLING FOR MENU
     let choice;
     while (isNaN(choice) || choice < 1 || choice > 4) {
       choice = parseInt(prompt("Enter your choice"));
@@ -885,12 +1003,15 @@ function startGame() {
 
     switch (choice) {
       case 1:
-        console.log("╔═══════════════•●•═══════════════╗");
+        console.log("%c╔═══════════════•●•═══════════════╗", "color: red; font-weight: bold; font-size: 20px;");
         trainers.forEach((trainer) => {
-          console.log(`  Trainer: ${trainer.name}`);
+          console.log(
+            `  %cTrainer: ${trainer.name}`,
+            "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+          );
           trainer.showOriginalPokemon();
         });
-        console.log("╚═══════════════•●•═══════════════╝");
+        console.log("%c╚═══════════════•●•═══════════════╝", "color: red; font-weight: bold; font-size: 20px;");
         break;
       case 2:
         const tournament = new Tournament(trainers);
@@ -898,23 +1019,83 @@ function startGame() {
         break;
       case 3:
         if (trainers.every((trainer) => trainer.wins === 0)) {
-          console.log("All trainers must have to fight first before showing the rankings.");
+          console.log(
+            "%cAll trainers must have to fight first before showing the rankings.",
+            "color: red; font-weight: bold; font-size: 50px;"
+          );
 
           break;
         } else {
           //SHOW RANKINGS BASED ON WINS
-          console.log("╔═══════════════•●•═══════════════╗");
+          console.log("%c╔═══════════════•●•═══════════════╗", "color: red; font-weight: bold; font-size: 20px;");
+
           trainers
             .sort((a, b) => b.wins + b.overallWins - (a.wins + a.overallWins))
             .forEach((trainer) => {
-              console.log(`  Trainer: ${trainer.name} = Wins: ${trainer.wins + trainer.overallWins}`);
+              console.log(
+                `  %cTrainer: ${trainer.name} = Wins: ${trainer.wins + trainer.overallWins} `,
+                "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+              );
             });
 
-          console.log("╚═══════════════•●•═══════════════╝");
+          console.log("%c╚═══════════════•●•═══════════════╝", "color: red; font-weight: bold; font-size: 20px;");
           break;
         }
 
       case 4:
+        console.log("");
+        console.log("Backing...");
+        return;
+    }
+  }
+}
+
+function pokemonGame() {
+  // 1st MENU
+  while (true) {
+    console.log("");
+
+    console.log(
+      "%c╔═════════════════《POKEMON GAME》══════════════╗",
+      "color: yellow; font-weight: bold; font-size: 20px;"
+    );
+    console.log(
+      "          %c[1] - Start Game",
+      "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+    );
+    console.log(
+      "          %c[2] - Exit",
+      "color: white; font-weight: bold; font-size: 15px; border: 1px solid white; padding: 2px; border-radius: 10px;"
+    );
+    console.log(
+      "%c╚═════════════════════《✧》══════════════════╝",
+      "color: yellow; font-weight: bold; font-size: 20px;"
+    );
+
+    //ERROR HANDLING FOR 1st MENU
+    let choice;
+    while (isNaN(choice) || choice < 1 || choice > 2) {
+      choice = parseInt(prompt("Enter your choice"));
+      if (isNaN(choice)) {
+        console.log("%cInvalid input. Please enter a number.", "color: red; font-weight: bold; font-size: 50px;");
+      } else if (choice < 1) {
+        console.log(
+          "%cPlease choose a valid option between 1 and 2.",
+          "color: red; font-weight: bold; font-size: 50px;"
+        );
+      } else if (choice > 2) {
+        console.log(
+          "%cPlease choose a valid option between 1 and 2.",
+          "color: red; font-weight: bold; font-size: 50px;"
+        );
+      }
+    }
+
+    switch (choice) {
+      case 1:
+        startGame();
+        break;
+      case 2:
         console.log("");
         console.log("Exiting...");
         return;
@@ -922,4 +1103,5 @@ function startGame() {
   }
 }
 
-startGame();
+//START THE GAME
+pokemonGame();
